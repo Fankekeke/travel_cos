@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.mrbird.febs.cos.dao.ScenicInfoMapper">
+
+    <!-- 分页查询景点信息 -->
+    <select id="scenicInfoByPage" resultType="java.util.LinkedHashMap">
+        SELECT
+        si.id,
+        si.name,
+        si.feature,
+        si.address,
+        si.images,
+        si.level,
+        si.start_date AS startDate,
+        si.end_date AS endDate,
+        si.point,
+        si.price,
+        si.create_date AS createDate,
+        si.hotel_ids AS hotelIds
+        FROM
+        scenic_info si
+        WHERE
+        1 = 1
+        <if test="scenicInfo.name != null and scenicInfo.name != ''">
+            AND si.name LIKE CONCAT('%',#{scenicInfo.name},'%')
+        </if>
+        <if test="scenicInfo.address != null and scenicInfo.address != ''">
+            AND si.address LIKE CONCAT('%',#{scenicInfo.address},'%')
+        </if>
+        <if test="scenicInfo.level != null and scenicInfo.level != ''">
+            AND si.level = #{scenicInfo.level}
+        </if>
+    </select>
+</mapper>

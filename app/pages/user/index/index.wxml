@@ -1,0 +1,32 @@
+<view class='UCenter-bg' style="background-image: linear-gradient(45deg, #0081ff, #1cbbb4);height: 400rpx;">
+    <block wx:if="{{!hasUserInfo}}">
+        <!-- canIUseGetUserProfile判断当前版本是否支持wx.getUserProfile方法 -->
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="cu-btn round shadow">登陆</button>
+        <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像昵称</button>
+    </block>
+    <!-- 用户已经授权过直接展示头像和用户名，大家实际开发中这里可以换成别的操作 -->
+    <block wx:else>
+        <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatar}});"></view>
+        <view class='text-xl' style="margin-top: 15px;font-size: 15px">{{userInfo.userName}}</view>
+    </block>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow">
+        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/order/index/index">
+            <text class='icon-send text-cyan'></text>
+            <text class='text-grey'>我的订单</text>
+        </navigator>
+    </view>
+    <!-- <view class="cu-item arrow">
+        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/vipcard/index/index">
+            <text class='icon-vipcard text-green'></text>
+            <text class='text-grey'>会员卡</text>
+        </navigator>
+    </view> -->
+    <view class="cu-item arrow">
+        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/coupon/index/index">
+            <text class='icon-ticket text-red'></text>
+            <text class='text-grey'>社区论坛</text>
+        </navigator>
+    </view>
+</view>

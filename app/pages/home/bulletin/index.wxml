@@ -1,0 +1,32 @@
+<!-- 状态栏区域 -->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
+            <text class='icon-back'></text>
+            公告
+        </navigator>
+    </view>
+</view>
+<view class="box" style="top: {{CustomBar}}px;">
+    <view class="cu-card article">
+        <view class="cu-card case no-card">
+            <view class="cu-item shadow" style="padding-top: 10px">
+                <view class="cu-card dynamic" wx:for="{{ bulletinList }}">
+                    <view class="cu-item shadow">
+                        <view style="font-size: 14px;padding: 20px;text-indent: 20px;">{{ item.content }}</view>
+                        <view class="grid flex-sub padding-lr col-1 grid-square" wx:for="{{ item.imagesList }}">
+                            <view class="bg-img only-img" style="background-image:url(http://127.0.0.1:9527/imagesWeb/{{ item }});"></view>
+                        </view>
+                        <view class="text-gray text-sm text-right padding">
+                            <text class="cuIcon-attentionfill margin-lr-xs"></text>
+                            {{ item.title }}
+                            <text class="cuIcon-appreciatefill margin-lr-xs"></text>
+                            {{ item.createDate }}
+                            <text class="cuIcon-messagefill margin-lr-xs"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

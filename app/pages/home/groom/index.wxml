@@ -1,0 +1,62 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <!-- <navigator class='action canui-head-title' open-type="navigateBack" delta="1" hover-class="none">
+            <text class='icon-back'></text> 优选酒店
+        </navigator> -->
+    </view>
+</view>
+
+<view class="box" style="top: {{CustomBar}}px;">
+
+    <navigator hover-class='none' url="" wx:for="{{ shopList }}">
+        <view class="cu-card case">
+            <view class="cu-item shadow margin-top">
+                <view class="cu-list menu menu-avatar">
+                    <view class="cu-item">
+                        <view class="cu-avatar radius lg" style="background-image:url(http://127.0.0.1:9527/imagesWeb/{{ item.hotelImage }});"></view>
+                        <view class='content'>
+                            <view class='text-black canui-xzwz' style="font-size: 13px">{{ item.name }}</view>
+                            <view class='text-gray text-sm canui-xzwz'> {{ item.address }}</view>
+                            <view class='text-orange text-sm canui-xzwz'> {{ item.tag }}</view>
+                        </view>
+                        <view class='action'>
+                            <button class='cu-btn bg-gradual-green shadow-blur radius' bindtap='shopDeatil' data-shopId='{{ item.id }}'>查看</button>
+                        </view>
+                    </view>
+                    <view class="canui-duotu">
+                        <view class="canui-dtimg-a" wx:if="{{ item.roomTypes[0] != undefined }}">
+                            <view class="canui-dtimg-content">
+                                <image src="http://127.0.0.1:9527/imagesWeb/{{ item.roomTypes[0].image }}" mode="aspectFill"></image>
+                                <view class="text-sm canui-dtimg-text">
+                                    <view class="text-white canui-xzwz">{{ item.roomTypes[0].name }}</view>
+                                    <view class="text-price text-red">{{ item.roomTypes[0].price }}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="canui-dtimg-b">
+                            <view class="canui-dtimg-ba" wx:if="{{ item.roomTypes[1] != undefined }}">
+                                <view class="canui-dtimg-content">
+                                    <image src="http://127.0.0.1:9527/imagesWeb/{{ item.roomTypes[1].image }}" mode="aspectFill"></image>
+                                    <view class="text-sm canui-dtimg-text">
+                                        <view class="text-white canui-xzwz">{{ item.roomTypes[1].name }}</view>
+                                        <view class="text-price text-red">{{ item.roomTypes[1].price }}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="canui-dtimg-bb" wx:if="{{ item.roomTypes[2] != undefined }}">
+                                <view class="canui-dtimg-content">
+                                    <image src="http://127.0.0.1:9527/imagesWeb/{{ item.roomTypes[2].image }}" mode="aspectFill"></image>
+                                    <view class="text-sm canui-dtimg-text">
+                                        <view class="text-white canui-xzwz">{{ item.roomTypes[2].name }}</view>
+                                        <view class="text-price text-red">{{ item.roomTypes[2].price }}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</view>

@@ -1,0 +1,20 @@
+<!-- 状态栏区域 -->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
+            <text class='icon-back'></text>
+            发布帖子
+        </navigator>
+    </view>
+</view>
+<view class="box" style="top: {{CustomBar}}px;">
+    <br />
+    <view style="padding: 20px;display: block">
+        <van-field model:value="{{ title }}" label="贴子标题" placeholder="请输入" style="display: block;margin-top: 15px;" />
+        <van-field model:value="{{ content }}" label="内容" type="textarea" placeholder="请输入内容" style="display: block;margin-top: 15px;" autosize border="{{ false }}" />
+        <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" style="display: block;margin-top: 15px;" />
+        <van-button type="primary" block style="display: block;margin-top: 35px;" bindtap="submit">
+            提 交
+        </van-button>
+    </view>
+</view>

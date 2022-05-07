@@ -1,0 +1,77 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
+            <text class='icon-back'></text> 结算订单
+        </navigator>
+    </view>
+</view>
+
+<view class="box" style="top: {{CustomBar}}px;">
+    <view class="canui-address">
+        <view class="cu-list menu bg-white">
+            <view class="cu-item">
+                <view class='content'>
+                    <view class="text-df">{{ userInfo.userName }} <text></text></view>
+                    <view class='text-gray text-sm canui-xzwz'></view>
+                </view>
+                <!-- <view class='action'><view class='text-grey icon-right'></view></view> -->
+            </view>
+            <view class="canui-lines"></view>
+        </view>
+    </view>
+
+    <view class="canui-card-order">
+        <view class="canui-order-item bg-white">
+            <view class="head-title-box">
+                <text class="icon-shop"></text>
+                <text>{{ hotelInfo.name }}</text>
+                <text class="icon-right"></text>
+            </view>
+            <navigator open-type="navigate" hover-class='none' url="/pages/order/details/index">
+                <view class="cu-list menu menu-avatar">
+                    <view class="cu-item">
+                        <view class="cu-avatar radius lg" style="background-image:url(http://127.0.0.1:9527/imagesWeb/{{ roomInfo.image }});"></view>
+                        <view class='content canui-xzwz tow'>{{ roomInfo.name }}</view>
+                        <view class='action'>
+                            <view class='text-price'>{{ roomInfo.price }}</view>
+                            <view class="text-xs text-right text-gray">x1</view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+            <view class="cu-list menu bg-white solid-bottom canui-selet">
+                <view class="cu-item">
+                    <view class='content'>
+                        <!-- 共 <text class="text-red"> 2</text> 件商品 -->
+                    </view>
+                    <view class='action'>
+                        <!-- 合计 <text class="text-price text-red">200</text> -->
+                    </view>
+                </view>
+                <!-- <view class="cu-item arrow">
+                    <view class='content'>会员卡</view>
+                    <view class='action'>
+                        无可用
+                    </view>
+                </view> -->
+            </view>
+            <view class="cu-form-group bg-white canui-input">
+                <view class='title'>开始入住时间</view>
+                <input class='radius' name='input' value="{{startDate}}" disabled></input>
+            </view>
+            <view class="cu-form-group bg-white canui-input">
+                <view class='title'>入住天数</view>
+                <input placeholder="请输入入住天数" class='radius' value="{{ days }}" bindinput="priceSum" name='input' type="number"></input>
+            </view>
+        </view>
+    </view>
+
+</view>
+
+<view class="bg-white canui-foor-fixed canui-submit-view {{TabbarBot=='y'?'canui-submit-order':''}}">
+    <view class="canui-submit">
+        <text class='text-red text-price canui-price'>{{ allPrice }}</text>
+        <text class='bg-red canui-submit-btn' bindtap='submit'>提交订单</text>
+    </view>
+</view>
