@@ -64,7 +64,7 @@ xierdun
 
 #### 演示视频
 
-[项目视频：基于Spring的旅游住宿小程序](https://www.bilibili.com/video/BV1S94y1f7Dg/)
+[项目视频：基于SpringBoot的旅游住宿小程序](https://www.bilibili.com/video/BV1S94y1f7Dg/)
 
 #### 获取方式
 
