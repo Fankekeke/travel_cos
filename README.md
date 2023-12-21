@@ -1,4 +1,4 @@
-### 基于SpringBoot的旅游住宿小程序
+### 基于SpringBoot + Vue的旅游住宿小程序
 
 #### 安装环境
 
